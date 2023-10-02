@@ -49,13 +49,13 @@ class WeatherViewController: UIViewController {
 //MARK: - TextfieldDelegate
 extension WeatherViewController : UITextFieldDelegate{
     @IBAction func searchPressed(_ sender: UIButton) {
-        searchTextField.endEditing(true)//yazı yazıldktan sonra herhangi bir yere tıklandıktan sonra klavyenin kapanmasını sağlar
+        searchTextField.endEditing(true)
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        searchTextField.endEditing(true)//yazı yazıldktan sonra herhangi bir yere tıklandıktan sonra klavyenin kapanmasını sağlar
+        searchTextField.endEditing(true)
         return true
     }
-    //textfield şu şu durumlarda şunu ypsın
+    
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         if textField.text != ""{
             return true
@@ -64,7 +64,6 @@ extension WeatherViewController : UITextFieldDelegate{
             return false
         }
     }
-    //arama yaptıktan sonra textfieldin sıfırlanmasını sağlar
     func textFieldDidEndEditing(_ textField: UITextField) {
         if let city = textField.text{
             weatherManager.fetchWeather(cityName: city)
